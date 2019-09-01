@@ -1,15 +1,27 @@
 import React, { Component } from 'react'; // importando biblioteca React
 import { View, Text, Image } from 'react-native'; // importando componentes React-Native
 
-class Imagem extends Component {
+class Janta extends Component {
+
+  constructor(props) {
+    super(props); // poder usar as props
+    this.state = {comida: this.props.comida};
+    let comidas = ['Pizza', 'Lasanha', 'Burger', 'Sopa', 'Arroz'];
+
+    setInterval(()=>{
+      this.setState(previousState=>{
+        let n = Math.floor(Math.random() * comidas.length);
+        return {comida: comidas[n]};
+      });
+    }, 1000);
+  }
+
   render() {
-
-    let imagem = {
-      uri: 'https://www.adelsonguimaraes.com.br/incubus/libs/img/icons/'+this.props.nome
-    }
-
-    return (
-      <Image source={imagem} style={{width:parseInt(this.props.largura), height:parseInt(this.props.altura)}} />
+    return(
+      <View>
+        <Text style={{textAlign:'center', fontWeight:'bold', fontSize:20, color:'red'}}>Hoje você vai jantar:</Text>
+        <Text style={{textAlign:'center', fontSize:20}}>{this.state.comida}</Text>
+      </View>
     );
   }
 }
@@ -19,14 +31,8 @@ export default class PrimeiroProjeto extends Component {
 
     return (
       
-      <View> 
-        {/*<View> componente que engloba outros componentes*/}
-        <Text>Olá Mundo</Text>
-        <Text style={{fontSize:25, color:"red", margin: 20}}>Olá Mundo</Text>
-
-        <Imagem nome='icon-512x512.png' largura='250' altura='250' />
-
-        {/* <Text> componente para mostrar um texto na tela */}
+      <View style={{paddingTop:20}}> 
+        <Janta comida='Café'/>
       </View>
     );
   }
