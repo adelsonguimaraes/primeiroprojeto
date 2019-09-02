@@ -6,27 +6,11 @@ export default class PrimeiroProjeto extends Component {
 
     return (
       
-      <View style={styles.padrao}> 
-        <Text style={styles.azulGrande}>Esse é o texto 1</Text>
-        <Text style={styles.vermelho}>Esse é o texto 2</Text>
-        <Text style={[styles.azulGrande, styles.vermelho]}>Esse é o texto 3</Text>
-        <Text>Esse é o texto 4</Text>
+      <View style={{flex:1, backgroundColor: 'black'}}> 
+        <View style={{height:70, backgroundColor: 'blue'}}></View>
+        <View style={{flex:1, backgroundColor: 'green'}}></View>
+        <View style={{height:50, backgroundColor: 'yellow'}}></View>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  padrao: {
-    paddingTop: 20
-  },
-  azulGrande: {
-    color: '#0000FF',
-    fontSize: 30,
-    textAlign: 'center'
-  },
-  vermelho: {
-    color: '#FF0000',
-    fontSize: 15
-  }
-});
